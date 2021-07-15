@@ -1,3 +1,5 @@
+// This is the main starting point for the electron application
+
 const { app, BrowserWindow } = require("electron");
 
 function createWindow() {
