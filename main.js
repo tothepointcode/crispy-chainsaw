@@ -3,9 +3,11 @@
 const { app, BrowserWindow } = require("electron");
 
 function createWindow() {
+  // web preferences key added to load preload script
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: { preload: path.join(__dirname, "preload.js") },
   });
 
   win.loadFile("index.html");
