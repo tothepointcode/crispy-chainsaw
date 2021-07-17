@@ -1,7 +1,7 @@
 // This is the main starting point for the electron application
 
 const { app, BrowserWindow } = require("electron");
-const path = require('path');
+const path = require("path");
 
 function createWindow() {
   // web preferences key added to load preload script
@@ -11,7 +11,14 @@ function createWindow() {
     webPreferences: { preload: path.join(__dirname, "preload.js") },
   });
 
-  win.loadFile("index.html");
+  // win.loadFile("index.html");
+
+  // testing with a url instead
+  win.loadURL("https://github.com");
+
+  // printing out content
+  const contents = win.webContents;
+  console.log(contents);
 }
 
 // checking if app is ready before starting
