@@ -8,3 +8,8 @@ window.addEventListener("DOMContentLoaded", () => {
     replaceText(`${dependency}-version`, process.versions[dependency]);
   }
 });
+
+// to pass data to the renderer
+const { contextBridge } = require("electron");
+
+contextBridge.exposeInMainWorld("myAPI", { desktop: true });

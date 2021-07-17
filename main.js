@@ -19,6 +19,8 @@ function createWindow() {
   // printing out content
   const contents = win.webContents;
   console.log(contents);
+
+  console.log(window.myAPI);
 }
 
 // checking if app is ready before starting
