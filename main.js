@@ -9,18 +9,17 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: { preload: path.join(__dirname, "preload.js") },
+    preload: path.join(__dirname, "preload.js"),
   });
 
-  // win.loadFile("index.html");
+  win.loadFile("index.html");
 
   // testing with a url instead
-  win.loadURL("https://github.com");
+  // win.loadURL("https://github.com");
 
   // printing out content
-  const contents = win.webContents;
-  console.log(contents);
-
-  console.log(window.myAPI);
+  // const contents = win.webContents;
+  // console.log(contents);
 }
 
 // checking if app is ready before starting
