@@ -12,10 +12,10 @@ function createWindow() {
     preload: path.join(__dirname, "preload.js"),
   });
 
-  win.loadFile("index.html");
+  // win.loadFile("index.html");
 
   // testing with a url instead
-  // win.loadURL("https://github.com");
+  win.loadURL("https://tothepointcode.com");
 
   // printing out content
   // const contents = win.webContents;
