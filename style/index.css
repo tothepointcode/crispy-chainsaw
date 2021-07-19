@@ -19,10 +19,10 @@ body #field {
   height: 100px;
   font-size: 50px;
   text-align: center;
-  background-color: var(--gray1);
   color: var(--white);
   border: 0px;
   outline: 0px;
+  background: linear-gradient(95deg, var(--gray1), var(--gray3));
 }
 
 body .keys {
@@ -50,10 +50,23 @@ body .keys .row button {
   transition: all 0.3s ease-in-out;
 }
 
+body .keys .row button.op {
+  background: linear-gradient(95deg, var(--gray3), var(--gray1));
+}
+
+body .keys .row button.eq {
+  background: linear-gradient(95deg, var(--gray1), var(--gray3));
+}
+
 /* events */
 body .keys .row button:hover {
   font-size: 65px;
   background-color: var(--gray2);
   color: var(--white);
   border-radius: 20%;
+}
+
+body #field:focus {
+  outline: 3px solid var(--gray2);
+  background: linear-gradient(95deg, var(--gray1), var(--gray1));
 }
