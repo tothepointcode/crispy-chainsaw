@@ -3,6 +3,21 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
+// for env status: dev or production
+const isDev = require("electron-is-dev");
+
+// If dev, hot reload
+if (isDev) {
+  try {
+    require("electron-reloader")(module, {
+      debug: true,
+      watchRenderer: true,
+    });
+  } catch (_) {
+    console.log("Error of the century.");
+  }
+}
+
 function createWindow() {
   // web preferences key added to load preload script
   const win = new BrowserWindow({
