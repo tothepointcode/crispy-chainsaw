@@ -23,8 +23,8 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    backgroundColor: "#000",
     webPreferences: { preload: path.join(__dirname, "preload.js") },
-    preload: path.join(__dirname, "preload.js"),
   });
 
   win.loadFile("index.html");
@@ -38,7 +38,7 @@ function createWindow() {
 
   // Open the DevTools.
   if (isDev) {
-    win.webContents.openDevTools({ mode: 'detach' });
+    win.webContents.openDevTools({ mode: "detach" });
   }
 }
 
