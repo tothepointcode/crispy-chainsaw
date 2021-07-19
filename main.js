@@ -35,6 +35,11 @@ function createWindow() {
   // printing out content
   // const contents = win.webContents;
   // console.log(contents);
+
+  // Open the DevTools.
+  if (isDev) {
+    win.webContents.openDevTools({ mode: 'detach' });
+  }
 }
 
 // checking if app is ready before starting
