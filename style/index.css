@@ -46,4 +46,14 @@ body .keys .row button {
   color: var(--white);
   margin: 1px;
   border: 0px;
+
+  transition: all 0.3s ease-in-out;
+}
+
+/* events */
+body .keys .row button:hover {
+  font-size: 65px;
+  background-color: var(--gray2);
+  color: var(--white);
+  border-radius: 20%;
 }
