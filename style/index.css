@@ -9,6 +9,12 @@
   --wh3: rgba(255, 255, 255, 0.6);
   --wh4: rgba(255, 255, 255, 0.4);
   --wh5: rgba(255, 255, 255, 0.2);
+  --black: #0000;
+  --gray1: #111827;
+  --gray2: #1f2937;
+  --gray3: #374151;
+  --white: #ffffff;
+
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
@@ -25,45 +31,24 @@ body #field {
 }
 
 body .keys {
-  background-color: var(--bl5);
+  background-color: var(--bl1);
   height: calc(100vh - 100px);
   margin: 0 auto;
   text-align: center;
   padding-top: 15px;
+  /* display: flex; */
+}
+
+body .keys .row {
   display: flex;
 }
 
-body .operands {
-  /* background-color: var(--bl5);
-    height: calc( 100vh - 100px );
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 15px; */
-}
-
-body .operations {
-  /* height: calc( 100vh - 100px );
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 15px; */
-  display: flex;
-  flex-direction: column;
-}
-
-body .keys button {
-  width: 75px;
-  height: 75px;
+body .keys .row button {
+  flex: 1;
   font-size: 35px;
+  height: 100px;
+  background-color: var(--gray1);
+  color: var(--white);
+  margin: 1px;
+  border: 0px;
 }
-
-/* body .operations button {
-    width: 100%;
-    height: 23%;
-    font-size: 35px;
-}
-
-body .operands button {
-    width: 31%;
-    height: 23%;
-    font-size: 35px;
-} */
