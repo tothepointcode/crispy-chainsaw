@@ -11,7 +11,8 @@
 }
 
 body {
-  color: var(--black);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif !important;
 }
 
 body #field {
@@ -60,6 +61,8 @@ body .components .row button {
   margin: 1px;
   border: 0px;
   outline: 0px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif !important;
 
   transition: all 0.3s ease-in-out;
 }
