@@ -30,14 +30,23 @@ field.addEventListener("input", (event) => {
 let operandA;
 let operandB;
 let operator;
+let screenContent;
 
 const registerValue = ({ target }) => {
   let operatorButton = target.getAttribute("operation");
+  const screen = document.querySelector(".screen");
 
   // check if button is an operator
   if (operatorButton && operatorButton === "clear") {
     // handle clear, no need for calculations
-    operandA = operandB = operator = fieldValue = field.value = "";
+    operandA =
+      operandB =
+      operator =
+      fieldValue =
+      field.value =
+      screen.textContent =
+      screenContent =
+        "";
   } else if (operatorButton && operatorButton === "del") {
     // handle backspace
     field.value = fieldValue = field.value.slice(0, -1);
@@ -49,22 +58,36 @@ const registerValue = ({ target }) => {
       // update operandA and set operator
       operandA = Number(fieldValue);
       operator = operatorButton;
+
+      // output operation on screen
+      screen.textContent = screenContent = `${operandA} ${produceSymbol(
+        operator
+      )}`;
+
       // Now clear fieldValue but not actual field
       fieldValue = "";
     } else if (operandA && operator && field.value) {
       // execute operation, store results in opA & operand in operand.
       operandB = Number(fieldValue);
-      // calcule and put result in operand A and field
+
+      // display second operand on screen
+      screen.textContent = `${screenContent} ${operandB} =`;
+
+      // calculate and put result in operand A and field
       operandA = field.value = doCalculation();
       fieldValue = operandB = "";
 
       if (operatorButton !== "equals") {
         // for a continuos calculation
         operator = operatorButton;
+
+        // output operation on screen
+        screenContent = `${operandA} ${produceSymbol(operator)}`;
       } else {
         // equals breaks the chain of calculations
         operandA = "";
         operator = "";
+        screenContent = ``;
       }
     }
   } else {
@@ -93,5 +116,21 @@ const doCalculation = () => {
 
     case "divide":
       return operandA / operandB;
+  }
+};
+
+const produceSymbol = (operator) => {
+  switch (operator) {
+    case "add":
+      return "+";
+
+    case "multiply":
+      return "x";
+
+    case "subtract":
+      return "-";
+
+    case "divide":
+      return "/";
   }
 };
