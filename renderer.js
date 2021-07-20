@@ -35,7 +35,13 @@ const registerValue = ({ target }) => {
   let operatorButton = target.getAttribute("operation");
 
   // check if button is an operator
-  if (operatorButton) {
+  if (operatorButton && operatorButton === "clear") {
+    // handle clear, no need for calculations
+    operandA = operandB = operator = fieldValue = field.value = "";
+  } else if (operatorButton && operatorButton === "del") {
+    // handle backspace
+    field.value = fieldValue = field.value.slice(0, -1);
+  } else if (operatorButton) {
     if (!operandA && !operator && !fieldValue) {
       // do nothing;
       return;
