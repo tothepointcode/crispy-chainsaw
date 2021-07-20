@@ -15,33 +15,32 @@ body {
 }
 
 body #field {
-  width: 100%;
-  height: 100px;
   font-size: 50px;
   text-align: center;
   color: var(--white);
   border: 0px;
   outline: 0px;
   background: linear-gradient(95deg, var(--gray1), var(--gray3));
+  margin-bottom: 10px;
+  flex: 1;
 }
 
-body .keys {
+body .components {
   background-color: var(--black);
-  height: calc(100vh - 100px);
-  margin: 0 auto;
+  height: 100vh;
   text-align: center;
-  padding-top: 15px;
-  /* display: flex; */
-}
-
-body .keys .row {
   display: flex;
+  flex-direction: column;
 }
 
-body .keys .row button {
+body .components .row {
+  display: flex;
+  flex: 1;
+}
+
+body .components .row button {
   flex: 1;
   font-size: 35px;
-  height: 100px;
   background-color: var(--gray1);
   color: var(--white);
   margin: 1px;
@@ -51,16 +50,16 @@ body .keys .row button {
   transition: all 0.3s ease-in-out;
 }
 
-body .keys .row button.op {
+body .components .row button.op {
   background: linear-gradient(95deg, var(--gray3), var(--gray1));
 }
 
-body .keys .row button.eq {
+body .components .row button.eq {
   background: linear-gradient(95deg, var(--gray1), var(--gray3));
 }
 
 /* events */
-body .keys .row button:hover {
+body .components .row button:hover {
   font-size: 65px;
   background-color: var(--gray2);
   color: var(--white);
@@ -71,3 +70,5 @@ body #field:focus {
   outline: 3px solid var(--gray2);
   background: linear-gradient(95deg, var(--gray1), var(--gray1));
 }
+
+/* Responsiveness */

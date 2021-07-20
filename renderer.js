@@ -15,7 +15,7 @@ let fieldValue = ``;
 const field = document.querySelector("input#field");
 field.value = fieldValue;
 
-let buttons = document.querySelectorAll(".keys button");
+let buttons = document.querySelectorAll(".components button");
 
 buttons.forEach((button) =>
   button.addEventListener("click", (event) => {
