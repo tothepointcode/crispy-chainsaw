@@ -40,16 +40,43 @@ const registerValue = ({ target }) => {
       operator = operatorButton;
       // Now clear fieldValue but not actual field
       fieldValue = "";
-    } else if (operandA && operator && fieldValue) {
-      // execute operation
-      alert("Do calculation");
+    } else if (operandA && operator && field.value) {
+      // execute operation, store results in opA & operand in operand.
       operandB = Number(fieldValue);
-      console.log(operandA, operator, operandB);
+      // calcule and put result in operand A and field
+      operandA = field.value = doCalculation();
+      fieldValue = operandB = "";
+
+      if (operatorButton !== "equals") {
+        // for a continuos calculation
+        operator = operatorButton;
+      } else {
+        // equals breaks the chain of calculations
+        operandA = "";
+        operator = "";
+      }
     }
   } else {
     // any other button, update input field
     buttonValue = target.textContent;
     fieldValue = `${fieldValue}${buttonValue}`;
     field.value = `${fieldValue}`;
+  }
+};
+
+const doCalculation = () => {
+  // switch for appropriate operation
+  switch (operator) {
+    case "add":
+      return operandA + operandB;
+
+    case "multiply":
+      return operandA * operandB;
+
+    case "subtract":
+      return operandA - operandB;
+
+    case "divide":
+      return operandA / operandB;
   }
 };
