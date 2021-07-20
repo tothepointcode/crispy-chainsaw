@@ -25,6 +25,18 @@ body #field {
   flex: 1;
   width: 100%;
   letter-spacing: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+}
+
+body .screen {
+  color: var(--white);
+  font-size: 18px;
+  position: absolute;
+  right: 15px;
+  top: 2px;
+  padding: 1px;
 }
 
 body .components {
