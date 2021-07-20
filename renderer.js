@@ -41,12 +41,17 @@ const registerValue = ({ target }) => {
     // handle backspace
     field.value = fieldValue = field.value.slice(0, -1);
   } else if (operatorButton) {
+    // when an operator button is clicked
+
     if (!operandA && !operator && !fieldValue) {
-      // do nothing;
+      // do nothing when no value is set;
       return;
-    } else if (!operandA && !operator && fieldValue) {
+    } else if (
+      (!operandA && !operator && fieldValue) ||
+      (operandA && operator && field.value && !fieldValue)
+    ) {
       // update operandA and set operator
-      operandA = Number(fieldValue);
+      operandA = Number(fieldValue || field.value);
       operator = operatorButton;
 
       // output operation on screen
@@ -56,7 +61,7 @@ const registerValue = ({ target }) => {
 
       // Now clear fieldValue but not actual field
       fieldValue = "";
-    } else if (operandA && operator && field.value) {
+    } else if (operandA && operator && fieldValue) {
       // execute operation, store results in opA & operand in operand.
       operandB = Number(fieldValue);
 
@@ -73,11 +78,6 @@ const registerValue = ({ target }) => {
 
         // output operation on screen
         screenContent = `${operandA} ${produceSymbol(operator)}`;
-      } else {
-        // equals breaks the chain of calculations
-        operandA = "";
-        operator = "";
-        screenContent = ``;
       }
     }
   } else {
@@ -125,5 +125,8 @@ const produceSymbol = (operator) => {
 
     case "divide":
       return "/";
+
+    case "equals":
+      return "=";
   }
 };
