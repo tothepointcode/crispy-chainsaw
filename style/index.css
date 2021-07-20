@@ -24,6 +24,7 @@ body #field {
   margin-bottom: 10px;
   flex: 1;
   width: 100%;
+  letter-spacing: 3px;
 }
 
 body .components {

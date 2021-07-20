@@ -12,15 +12,44 @@
 // Targetting input field
 let fieldValue = ``;
 
-const field = document.querySelector("input#field");
-field.value = fieldValue;
-
+// handling click event
 let buttons = document.querySelectorAll(".components button");
-
 buttons.forEach((button) =>
   button.addEventListener("click", (event) => {
-    let buttonValue = event.target.textContent;
-    // fieldValue = `${fieldValue} ${buttonValue}`;
-    field.value = buttonValue;
+    registerValue(event);
   })
 );
+
+// handle calculations
+let operandA;
+let operandB;
+let operator;
+
+const registerValue = ({ target }) => {
+  const field = document.querySelector("input#field");
+  let operatorButton = target.getAttribute("operation");
+
+  // check if button is an operator
+  if (operatorButton) {
+    if (!operandA && !operator && !fieldValue) {
+      // do nothing;
+      return;
+    } else if (!operandA && !operator && fieldValue) {
+      // update operandA and set operator
+      operandA = Number(fieldValue);
+      operator = operatorButton;
+      // Now clear fieldValue but not actual field
+      fieldValue = "";
+    } else if (operandA && operator && fieldValue) {
+      // execute operation
+      alert("Do calculation");
+      operandB = Number(fieldValue);
+      console.log(operandA, operator, operandB);
+    }
+  } else {
+    // any other button, update input field
+    buttonValue = target.textContent;
+    fieldValue = `${fieldValue}${buttonValue}`;
+    field.value = `${fieldValue}`;
+  }
+};
