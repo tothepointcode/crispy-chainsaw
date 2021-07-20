@@ -20,13 +20,18 @@ buttons.forEach((button) =>
   })
 );
 
+// syncing keyboard input with keys click
+const field = document.querySelector("input#field");
+field.addEventListener("input", (event) => {
+  updateField(event.target);
+});
+
 // handle calculations
 let operandA;
 let operandB;
 let operator;
 
 const registerValue = ({ target }) => {
-  const field = document.querySelector("input#field");
   let operatorButton = target.getAttribute("operation");
 
   // check if button is an operator
@@ -58,10 +63,14 @@ const registerValue = ({ target }) => {
     }
   } else {
     // any other button, update input field
-    buttonValue = target.textContent;
-    fieldValue = `${fieldValue}${buttonValue}`;
-    field.value = `${fieldValue}`;
+    updateField(target);
   }
+};
+
+const updateField = ({ textContent, value }) => {
+  // if value is from keyboard, we use that. Else we append values from our buttons
+  fieldValue = textContent ? `${fieldValue}${textContent}` : value;
+  field.value = `${fieldValue}`;
 };
 
 const doCalculation = () => {
