@@ -1,14 +1,3 @@
-// console.log("Values", window.myAPI);
-// alert("Hello World");
-
-// const NOTIFICATION_TITLE = "Title";
-// const NOTIFICATION_BODY =
-//   "Notification from the Renderer process. Click to log to console.";
-// const CLICK_MESSAGE = "Notification clicked!";
-
-// new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY }).onclick =
-//   () => (document.getElementById("output").innerText = CLICK_MESSAGE);
-
 // Targetting input field
 let fieldValue = ``;
 
@@ -32,6 +21,7 @@ let operandB;
 let operator;
 let screenContent;
 
+// keep track of values inputted
 const registerValue = ({ target }) => {
   let operatorButton = target.getAttribute("operation");
   const screen = document.querySelector(".screen");
@@ -96,12 +86,14 @@ const registerValue = ({ target }) => {
   }
 };
 
+// update input field value
 const updateField = ({ textContent, value }) => {
   // if value is from keyboard, we use that. Else we append values from our buttons
   fieldValue = textContent ? `${fieldValue}${textContent}` : value;
   field.value = `${fieldValue}`;
 };
 
+// perform operation
 const doCalculation = () => {
   // switch for appropriate operation
   switch (operator) {
@@ -119,6 +111,7 @@ const doCalculation = () => {
   }
 };
 
+// produce symbol for small screen
 const produceSymbol = (operator) => {
   switch (operator) {
     case "add":

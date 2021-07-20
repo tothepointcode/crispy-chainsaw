@@ -24,17 +24,9 @@ function createWindow() {
     width: 800,
     height: 600,
     backgroundColor: "#000",
-    webPreferences: { preload: path.join(__dirname, "preload.js") },
   });
 
   win.loadFile("index.html");
-
-  // testing with a url instead
-  // win.loadURL("https://tothepointcode.com");
-
-  // printing out content
-  // const contents = win.webContents;
-  // console.log(contents);
 
   // Open the DevTools.
   if (isDev) {
