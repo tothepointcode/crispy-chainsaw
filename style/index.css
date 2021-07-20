@@ -46,6 +46,7 @@ body .keys .row button {
   color: var(--white);
   margin: 1px;
   border: 0px;
+  outline: 0px;
 
   transition: all 0.3s ease-in-out;
 }
